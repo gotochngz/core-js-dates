@@ -133,18 +133,18 @@ describe('core-js-dates', () => {
     () => {
       assert.equal(
         tasks.getCountDaysOnPeriod(
+          '2023-12-20T00:00:00.000Z',
+          '2024-02-02T00:00:00.000Z'
+          ),
+          45
+          );
+      assert.equal(
+        tasks.getCountDaysOnPeriod(
           '2024-02-01T00:00:00.000Z',
           '2024-02-02T00:00:00.000Z'
           ),
           2
           );
-          assert.equal(
-            tasks.getCountDaysOnPeriod(
-              '2023-12-20T00:00:00.000Z',
-              '2024-02-02T00:00:00.000Z'
-              ),
-              45
-              );
       assert.equal(
         tasks.getCountDaysOnPeriod(
           '2024-02-01T00:00:00.000Z',
