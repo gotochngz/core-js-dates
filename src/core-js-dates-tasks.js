@@ -139,6 +139,10 @@ function getCountDaysInMonth(month, year) {
  */
 function getCountDaysOnPeriod(/* dateStart, dateEnd */) {
   throw new Error('Not implemented');
+  // const start = new Date(dateStart);
+  // const end = new Date(dateEnd);
+  // const count = end.getTime() - start.getTime();
+  // return count;
 }
 
 /**
@@ -173,8 +177,9 @@ function isDateInPeriod(/* date, period */) {
  * '1999-01-05T02:20:00.000Z' => '1/5/1999, 2:20:00 AM'
  * '2010-12-15T22:59:00.000Z' => '12/15/2010, 10:59:00 PM'
  */
-function formatDate(/* date */) {
-  throw new Error('Not implemented');
+function formatDate(date) {
+  const newDate = new Date(date);
+  return newDate.toLocaleString('en', { timeZone: 'UTC' });
 }
 
 /**

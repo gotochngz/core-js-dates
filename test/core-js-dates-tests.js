@@ -68,8 +68,8 @@ describe('core-js-dates', () => {
     'getDayName should returns the name of the day of the week for the passed date',
     () => {
       assert.equal(tasks.getDayName('01 Jan 1970 00:00:00 UTC'), 'Thursday');
-      assert.equal(tasks.getDayName('03 Dec 1995 00:12:00 UTC'), 'Sunday');
       assert.equal(tasks.getDayName('2024-01-30T00:00:00.000Z'), 'Tuesday');
+      assert.equal(tasks.getDayName('03 Dec 1995 00:12:00 UTC'), 'Sunday');
       assert.equal(tasks.getDayName('2024-01-30T00:10:40.000Z'), 'Tuesday');
       assert.equal(tasks.getDayName('2023-05-30T05:20:30.000Z'), 'Tuesday');
       assert.equal(tasks.getDayName('2022-07-30T10:30:20.000Z'), 'Saturday');
@@ -135,9 +135,16 @@ describe('core-js-dates', () => {
         tasks.getCountDaysOnPeriod(
           '2024-02-01T00:00:00.000Z',
           '2024-02-02T00:00:00.000Z'
-        ),
-        2
-      );
+          ),
+          2
+          );
+          assert.equal(
+            tasks.getCountDaysOnPeriod(
+              '2023-12-20T00:00:00.000Z',
+              '2024-02-02T00:00:00.000Z'
+              ),
+              45
+              );
       assert.equal(
         tasks.getCountDaysOnPeriod(
           '2024-02-01T00:00:00.000Z',
@@ -151,13 +158,6 @@ describe('core-js-dates', () => {
           '2024-03-01T00:00:00.000Z'
         ),
         30
-      );
-      assert.equal(
-        tasks.getCountDaysOnPeriod(
-          '2023-12-20T00:00:00.000Z',
-          '2024-02-02T00:00:00.000Z'
-        ),
-        45
       );
       assert.equal(
         forbidden.isCommented(tasks.getCountDaysOnPeriod),
